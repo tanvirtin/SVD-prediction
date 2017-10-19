@@ -14,15 +14,38 @@ def main():
 		[0, 1, 0, 2, 2]
 		])
 
+	# Let the movies Matrix, Alien and Serenity be a Sci-fy genre movie and
+	# let Casablancas and Amelia be a Romance genre movie
+
 	svd = SVD(dataMatrix)
 
 	svd.svd()
 
 	svd.reduceDimension(2)
 
-	u, d, v = svd.getSvd()
+	u, d, vTranspose = svd.getSvd()
 
-	print(d)
+	# Lets say we have a user Alan who rated these movies 5, 5, 5, 1, and 2.
+	# To find what type of movies Alan likes we simply multiply Alan's 1 * n matrix
+	# with the matrix v. This will give us a two dimensional matrix telling us
+	# what genre of movies Alan prefers. This will transform the user's movies vector
+	# into the strength of each movie as v matrix is movies to concepts vector, or
+	# in other words n * r matrix
+
+	alanRatings = np.matrix([[5, 5, 5, 1, 2]])
+
+	# Remember the v returned by numpy is already transposed, so we need to 
+	# transpose it back to the original v
+
+	alanPreference = np.matmul(alanRatings, np.transpose(vTranspose));
+
+	# printing alanPrefence will show you a 1 * 2 matrix, where each row is the
+	# strength of the concept of the database or in other words score of Sci-fi
+	# and romance
+
+	print(alanPreference)
+
+	
 
 if __name__ == "__main__":
 	main()
