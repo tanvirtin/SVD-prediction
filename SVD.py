@@ -1,6 +1,6 @@
 import numpy as np
 
-class SVD:
+class Svd:
 	def __init__(self, dataMatrix):
 		self.dataMatrix = dataMatrix
 		self.u = None

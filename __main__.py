@@ -1,4 +1,4 @@
-from SVD import SVD
+from svd import Svd
 import numpy as np
 
 def main():
@@ -17,7 +17,7 @@ def main():
 	# Let the movies Matrix, Alien and Serenity be a Sci-fy genre movie and
 	# let Casablancas and Amelia be a Romance genre movie
 
-	svd = SVD(dataMatrix)
+	svd = Svd(dataMatrix)
 
 	svd.svd()
 
