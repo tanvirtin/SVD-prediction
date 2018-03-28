@@ -39,7 +39,7 @@ def main():
 
 	alanPreference = np.matmul(alanRatings, np.transpose(vTranspose));
 
-	# printing alanPrefence will show you a 1 * 2 matrix, where each row is the
+	# printing alanPrefence will show you a 1 * 2 matrix, where each column is the
 	# strength of the concept of the database or in other words score of Sci-fi
 	# and romance
 
